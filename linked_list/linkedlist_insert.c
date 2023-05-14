@@ -12,6 +12,7 @@ struct Node* head;
 void insert(int val);
 void insert_n(int val,int index);
 void insert_end(int val);
+void delete_n(int index);
 void print();
 
 int main(){
@@ -21,40 +22,55 @@ int main(){
     printf("ENTER HOW MANY NUMBERS: \n");
     scanf("%d",&n);
     
-    for(i=0;i<n;i++){
+    for(i=0;i<n;i++){//1
         printf("ENTER NUMBER %d \n",i+1);
         scanf("%d",&j);
         b = true;
-        while(b){
-        printf(" INSERT TO BEG(1) OR INSERT AT END(2) OR INSERT at Nth position(3)");
+        while(b){//2
+        printf(" INSERT TO BEG(1) OR INSERT AT END(2) OR INSERT at Nth position(3) OR DELETE AT  Nth position(4)");
         scanf("%d",&ins);
-        if(ins==1){
+        if(ins==1){//3
           insert(j);  
           print();
            b = false;
-        }else if (ins==2){
+        }else if (ins==2){//3
          insert_end(j);
          print();
          b = false;
-        }else if (ins==3){
+        }else if (ins==3){//3
          printf("Print at which index you need to insert ");
          scanf("%d",&index);
-        while (index>size+1){
+        while (index>size+1){//4
         printf("Index out of Range!!!!");
         printf("\n");
         printf("Print at which index you need to insert ");
          scanf("%d",&index);
              
-         }
+         }//3
         insert_n(j,index);
 
          print();
          b = false;
-        }
-        
-        else{
+        }//2
+        else if (ins==4){//2
+         printf("Print at which index you need to delete ");
+         scanf("%d",&index);
+        while (index>size+1){//3
+        printf("Index out of Range!!!!");
+        printf("\n");
+        printf("Print at which index you need to delete ");
+         scanf("%d",&index);
+             
+         }//2
+        delete_n(index);
+         print();
+         b = false;
+        } else{
             b = true;
         }
+        
+        
+       
         }
         
        
@@ -136,5 +152,26 @@ void insert_n(int val,int index){
     }
     temp2->next = ptr->next;
     ptr->next = temp2;
+    
+}
+
+void delete_n(int index){
+    int i=0;
+
+    struct Node* del1;
+    struct Node* del2;
+    del1 = head;
+    if (index==1){
+        head = del1->next;
+        free(del1);
+        return;
+    }
+     for(i=0;i<index-2;i++){
+        del1 = del1->next;
+    }
+     del2 = del1->next;//n 
+    del1->next = del2->next;
+    free(del2);
+    
     
 }
