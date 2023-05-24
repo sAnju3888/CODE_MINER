@@ -1,15 +1,12 @@
 void rec_print(struct Node* p){
     if(p==NULL){
-        return ;
+       return ;
     }
     else{
-
                 printf("\n");
         printf("%d sui",p->data);
         rec_print(p->next);
-
     }
-    
 }
 
 void rec_print_reverse(struct Node* p){
