@@ -12,17 +12,19 @@ struct Node* getnewnode(int x);
 void print();
 void reverse_print();
 void Insert_at_tail(int x);
+void Insert_between(int x,int ind);
 struct Node* head;
 int main(){
     head = NULL; 
+    Insert_at_head(4);
     Insert_at_head(2);
-    Insert_at_head(24);
-    Insert_at_head(48);
-    Insert_at_tail(90);
-    Insert_at_tail(100);
+    Insert_at_tail(6);
+    Insert_between(3,2);
+    
     print();
     printf("\n");
     reverse_print();
+
     
 }
 struct Node* getnewnode(int x){
@@ -80,6 +82,20 @@ void Insert_at_tail(int x){
     tail->prev = temp;
     
     temp->next = tail;
-    
+}
+
+
+void Insert_between(int x,int ind){
+    struct Node* tmp = getnewnode(x);
+    struct Node* ptr = head;
+
+    for(int i=1;i<ind-1;i++){
+        ptr = ptr->next;
+    }
+    struct Node* store = ptr->next;
+    tmp->prev = ptr;
+    tmp->next = store;
+    ptr->next = tmp;
+    tmp->next->prev = tmp;
     
 }
