@@ -11,7 +11,7 @@ int compute(char v1,char v2,char operator);
 int topp();
 int main(){
     // IMPLEMENATION OF  Evaluating postfix expression
-    //left to right adhanula v1 = first top and v2 = second top after removing first top
+    //left to right adhanula v2 = first top and v1 = second top after removing first top  v1+v2
   
     char postfix[20]="23*54*+9-";
     int i=0;
