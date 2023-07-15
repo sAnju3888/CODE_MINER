@@ -17,7 +17,6 @@ def minimum_cost_path(matrix):
 
 
 def main():
-    print("jn")
     matrix = [[3,2,12,15,10],[6,19,7,11,17],[8,5,12,32,21],[3,20,2,9,7]]
     print(minimum_cost_path(matrix))
 

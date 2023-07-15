@@ -8,6 +8,7 @@ def path(matrix,i,j,lookup):
 
     if matrix[i][j]==1:
         return 0
+    
     if i==n-1 and j==m-1:
         return 1 
     elif i==n-1:

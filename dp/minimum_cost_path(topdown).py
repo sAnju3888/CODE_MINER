@@ -18,8 +18,6 @@ def min_cost_top_down(matrix,i,j,look):
         return look[(i,j)]
 
 
-
-
 def main():
     matrix = [[3,2,12,15,10],[6,19,7,11,17],[8,5,12,32,21],[3,20,2,9,7]]
     look = {}
