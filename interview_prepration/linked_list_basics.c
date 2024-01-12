@@ -31,16 +31,18 @@ struct Node *Insert(struct Node *head,int value){
     }
     return head;
 }
-void prints(struct Node* head){
-    
-    struct Node* t3 = head;
-    while(t3 != NULL){
-        printf("%d \t",t3->val);
-        t3 = t3->next;
+void print_all(struct Node* head){
+    struct Node* temp = head;
+    while(temp != NULL){
+        if (temp->next != NULL){
+        printf("%d -> ",temp->val);
+        }
+        else{
+            printf("%d",temp->val);
+        }
+        temp = temp->next;
     }
     printf("\n");
-    
-    
 }
 
 struct Node *Insert_at_beg(struct Node *head,int value){
@@ -147,39 +149,39 @@ struct Node* rev_recursion_k(struct Node* head,int k){
 
 int main(){
   struct Node *head = NULL; 
+  head = Insert(head,2);
+  head = Insert(head,3);
+  head = Insert_at_beg(head,1);
+  head = Insert(head,4);
   head = Insert(head,5);
+  head = Insert(head,6);
   head = Insert(head,7);
-  head = Insert_at_beg(head,9);
   head = Insert(head,8);
-  head = Insert(head,1);
-  head = Insert(head,7);
-  head = Insert(head,7);
-  head = Insert(head,5);
-  head = Insert(head,5);
-  head = Insert(head,5);
+  head = Insert(head,9);
+  head = Insert(head,10);
   
   printf("Normal: \n");
-  prints(head);
+  print_all(head);
   
   printf("Delete End Element: \n");
   head = delete_last(head); 
-  prints(head);
+  print_all(head);
   
   printf("Delete Front: \n");
   head = delete_front(head);
-  prints(head);
+  print_all(head);
   
   printf("reverse iterational: \n");
   head = rev(head);
-  prints(head);
+  print_all(head);
   
   printf("reverse recursive: \n");
   struct Node* dupe = head; 
   head = rev_recursion(head , dupe);
-  prints(head);
+  print_all(head);
   
   printf("reverse with group size k: \n");
   head = rev_recursion_k(head,2);
-  prints(head);
+  print_all(head);
     
 }
